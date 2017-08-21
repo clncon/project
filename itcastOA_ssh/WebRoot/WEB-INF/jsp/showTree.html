@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>showTree.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    <script language="javascript" src="/script/jquery.js"></script>
+ 
+     <script type="text/javascript">
+        function showTree(tree){
+          alert("ff");
+          var ul =  ${"div"}.next();
+            ul.toggle();
+        }
+     </script>
+  </head>
+  
+  <body>
+                                              模拟一个tree结构<br/>
+             <ul>
+                <li><div  onclick="showTree(this)" style="border: 1px solid red;width=100px">岗位管理</div>
+                    <ul>
+                       <li>岗位添加</li>
+                       <li>岗位修改</li>
+                       <li>岗位删除</li>
+                    </ul>
+                </li>
+                <li>
+                                                                 部门管理
+                   <ul>
+                       <li>部门添加</li>
+                       <li>部门修改</li>
+                       <li>部门删除</li>
+                    </ul>
+                 </li>
+                <li>用户管理</li>
+             </ul>
+  </body>
+</html>

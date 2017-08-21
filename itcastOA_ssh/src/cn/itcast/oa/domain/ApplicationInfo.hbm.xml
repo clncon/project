@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+
+-->
+
+<hibernate-mapping package="cn.itcast.oa.domain">
+	
+	<class name="ApplicationInfo" table="oa_applicationInfo">
+	      <id name="id">
+	         <generator class="native"></generator>
+	      </id>
+	      
+                <property name="title"></property>
+                <property name="applyTime" type="timestamp"></property>
+                <property name="status"></property>
+                <property name="path"></property>
+                
+                
+                <!--applicationTemplate属性，与ApplicationTemplate是多对一的关系 -->
+                  <many-to-one name="applicationTemplate" class="ApplicationTemplate" column="applicationTemplateId"></many-to-one>
+                <!--approveInfos属性。与ApproveInfo是一对多的关系  -->
+                 <set name="approveInfos">
+                   <key column="applicationInfoId"></key>
+                    <one-to-many class="ApproveInfo"/>
+                 </set>
+                <!--applicant属性。与User是多对一的关系  -->
+                  <many-to-one name="applicant" class="User" column="applicantId"/>
+	  </class>
+
+
+</hibernate-mapping>

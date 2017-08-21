@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+
+-->
+
+<hibernate-mapping package="cn.itcast.oa.domain">
+	
+	  <class name="ApproveInfo" table="oa_approveInfo">
+	     <id name="id">
+	        <generator class="native">
+	        </generator>
+	      </id>
+	      
+	      <property name="approveTime" type="timestamp"></property>
+	      <property name="approvel"></property>
+	      <property name="comment"></property>
+	      
+	      <!--applicationInfo属性，与ApplicationInfo是多对一的关系  -->
+	       <many-to-one name="applicationInfo" class="ApplicationInfo" column="applicationInfoId"></many-to-one>
+	      <!--approver属性，与User是多对一的关系  -->
+	       <many-to-one name="approver" class="User" column="approverId"></many-to-one>
+	  </class>
+</hibernate-mapping>

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+
+-->
+
+<hibernate-mapping package="cn.itcast.oa.domain">
+	
+	  <class name="ApplicationTemplate" table="oa_applicationTemplate">
+	      <id name="id">
+	         <generator class="native"></generator>
+	      </id>
+	      
+	       <property name="templateName"></property>
+	       <property name="processDefinitionKey"></property>
+	       <property name="path"></property>
+	        
+	        
+	        <!--applicationInfos属性，与ApplicationInfo是一对多的关系 -->
+	         <set name="applicationInfos">
+	           <key column="applicationTemplateId"></key>
+	            <one-to-many class="ApplicationInfo"/>
+	         </set>
+	  </class>
+
+</hibernate-mapping>

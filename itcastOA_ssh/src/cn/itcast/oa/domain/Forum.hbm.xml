@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+
+-->
+
+<hibernate-mapping package="cn.itcast.oa.domain">
+	
+	   <class name="Forum" table="oa_forum">
+	       <id name="id">
+	            <generator class="native">
+	            </generator>
+	       </id>
+	        <property name="forumName"></property>
+	        <property name="description"></property>
+	        <property name="position"></property>
+	        <property name="topicCount"></property>
+	        <property name="articleCount"></property>
+	        <!-- topics属性  与Topic是 一对多的关系 -->
+	          <set name="topics" cascade="delete">
+	             <key column="forumId"></key>
+	             <one-to-many class="Topic"/>
+	          </set>
+	        
+	         <!--lastTopic属性，与Topic是一对一的关系-->
+	          <many-to-one name="lastTopic" class="Topic" unique="true" column="lastTopicId"></many-to-one> 
+	               
+	   </class>
+  
+</hibernate-mapping>

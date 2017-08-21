@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+
+-->
+
+<hibernate-mapping package="cn.itcast.oa.domain">
+	
+	  <class name="Department" table="oa_department">
+	      <id name="id">
+	         <generator class="native"></generator>
+	      </id>
+	      
+	        <property name="departmentName"></property>
+	        <property name="description"></property>
+	        
+	        <!-- parent属性，与Department(上级)属性是多对一的关系 -->
+	          <many-to-one name="parent" class="Department" column="parentId"></many-to-one>
+	        <!-- children属性，与Department(下级)属性是一对多的关系 -->
+	          <set name="children" cascade="delete">
+	             <key column="parentId"></key>
+	             <one-to-many class="Department"/>
+	          </set>
+	        <!-- users属性，与User类是一对多的关系 -->
+	          <set name="users">
+	             <key column="departmentId"></key>
+	              <one-to-many class="User"/>
+	          </set>
+	        
+	  </class>
+
+</hibernate-mapping>

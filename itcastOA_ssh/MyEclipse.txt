@@ -1,0 +1,37 @@
+========================关于快捷=================================
+选中多个文件 shift+文件
+取消文件的选中 ctrl+文件
+设置xml一行最大字符数 window>preference>myEclipse>files and editors>xml>xml soource>line width
+快速提示单词（与光标处最近的）
+---->word completion
+--->ctrl+alt+/
+  
+================================关于数据库(mysql)的设置===============================================================
+查看数据库的状态信息
+mysql>status
+--------------------------------------------------------------------------------------------------------------------------
+服务器状态的设置在mysql安装目录的下的my.ini文件下
+
+
+================================关于异常========================
+出现如下异常:
+
+Getting Spring Error “Bean named 'x' must be of type [y], but was actually of type [$Proxy]”Getting Spring Error “Bean named 'x' must be of type [y], but was actually of type [$Proxy]”
+
+解决方法：
+  导入如下配置
+ <aop:config proxy-target-class="true"/>
+----------------------------------------------------
+java.lang.NoClassDefFoundError: org/hibernate/Session
+
+------》解决方法
+---->将hernande包放入到lib下，不要另外建目录
+  
+===================================================================一些方法======================================================
+  如何在父类中获得子类的泛型的真实对象
+   
+   --》//通过反射得到T的真实对象
+		   //从子类中获得父类泛型
+		  ParameterizedType pt = (ParameterizedType) this.getClass().getGenericSuperclass();
+		   //通过子类泛型获得父类泛型中的真实类型
+		   this.clazz =  (Class) 
