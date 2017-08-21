@@ -1,0 +1,17 @@
+package com.itheima.elec.dao;
+
+import java.util.List;
+import java.util.Map;
+
+import com.itheima.elec.domain.ElecFileUpload;
+
+public interface IElecFileUploadDao extends ICommonDao<ElecFileUpload> {
+	
+	public static final String SERVICE_NAME = "com.itheima.elec.dao.impl.ElecFileUploadDaoImpl";
+
+	List<ElecFileUpload> findFileUploadListByCondition(String condition,
+			Object[] params, Map<String, String> orderby);
+
+	
+	
+}
